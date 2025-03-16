@@ -107,6 +107,113 @@
             font-style: italic;
             color: #666;
         }
+        .action-buttons {
+            white-space: nowrap;
+        }
+        .edit-btn, .delete-btn {
+            padding: 4px 8px;
+            margin: 2px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .edit-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+        .edit-btn:hover {
+            background-color: #0b7dda;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: black;
+        }
+        .modal-form-group {
+            margin-bottom: 15px;
+        }
+        .modal-form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .modal-form-group input,
+        .modal-form-group select,
+        .modal-form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .modal-form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .modal-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .modal-buttons button {
+            padding: 8px 16px;
+            margin: 0 5px;
+        }
+        /* Confirmation dialog */
+        .confirm-dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            z-index: 1001;
+            display: none;
+            text-align: center;
+        }
+        .confirm-dialog p {
+            margin-bottom: 20px;
+        }
+        .confirm-dialog button {
+            padding: 8px 16px;
+            margin: 0 5px;
+        }
     </style>
 </head>
 <body>
@@ -154,6 +261,7 @@
                 <th rowspan="2">Next Lesson Action Plan</th>
                 <th rowspan="2">Resource Evaluation</th>
                 <th rowspan="2">Overall Course Effectiveness</th>
+                <th rowspan="2">Actions</th>
             </tr>
             <tr>
                 <th>Challenges</th>
@@ -172,7 +280,124 @@
         <a href="add_reflection.html" class="nav-button">Add New Reflection</a>
     </div>
     
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Reflection</h2>
+            <form id="editForm">
+                <input type="hidden" id="edit-id">
+                
+                <div class="modal-form-group">
+                    <label for="edit-date">Date:</label>
+                    <input type="date" id="edit-date" required>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-class">Class:</label>
+                    <select id="edit-class" required>
+                        <option value="">Select a class</option>
+                        <option value="5A">5A</option>
+                        <option value="5B">5B</option>
+                        <option value="5C">5C</option>
+                        <option value="5D">5D</option>
+                        <option value="6A">6A</option>
+                        <option value="6B">6B</option>
+                        <option value="6C">6C</option>
+                        <option value="6D">6D</option>
+                        <option value="6E">6E</option>
+                        <option value="6F">6F</option>
+                    </select>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-subject">Subject:</label>
+                    <input type="text" id="edit-subject" required>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-lessonTopic">Lesson Topic:</label>
+                    <input type="text" id="edit-lessonTopic" required>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-objectives">Lesson Objectives:</label>
+                    <textarea id="edit-objectives" required></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-classroomChallenges">Classroom Management Challenges:</label>
+                    <textarea id="edit-classroomChallenges"></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-classroomSolutions">Classroom Management Solutions:</label>
+                    <textarea id="edit-classroomSolutions"></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-culturalChallenges">Cross-cultural Communication Challenges:</label>
+                    <textarea id="edit-culturalChallenges"></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-culturalSolutions">Cross-cultural Communication Solutions:</label>
+                    <textarea id="edit-culturalSolutions"></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-engagement">Student Engagement:</label>
+                    <textarea id="edit-engagement"></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-studentFeedback">Student Feedback:</label>
+                    <textarea id="edit-studentFeedback"></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-teacherReflection">Teacher Reflection:</label>
+                    <textarea id="edit-teacherReflection" required></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-nextSteps">Next Lesson Action Plan:</label>
+                    <textarea id="edit-nextSteps" required></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-resources">Resource Evaluation:</label>
+                    <textarea id="edit-resources"></textarea>
+                </div>
+                
+                <div class="modal-form-group">
+                    <label for="edit-effectiveness">Overall Course Effectiveness:</label>
+                    <select id="edit-effectiveness">
+                        <option value="High">High</option>
+                        <option value="Good">Good</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="submit" class="edit-btn">Save Changes</button>
+                    <button type="button" class="delete-btn" onclick="closeEditModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Confirmation Dialog -->
+    <div id="confirmDialog" class="confirm-dialog">
+        <p>Are you sure you want to delete this reflection?</p>
+        <button id="confirmYes" class="delete-btn">Yes, Delete</button>
+        <button id="confirmNo" class="edit-btn">Cancel</button>
+    </div>
+    
     <script>
+        let currentReflectionId = null;
+        
         // Function to load reflections from localStorage
         function loadReflections() {
             const reflectionsData = JSON.parse(localStorage.getItem('teachingReflections')) || [];
@@ -190,7 +415,7 @@
             if (filteredReflections.length === 0) {
                 // Display a message if no reflections are found
                 const emptyRow = document.createElement('tr');
-                emptyRow.innerHTML = `<td colspan="12" class="no-data">No reflection data available. Please add a new reflection.</td>`;
+                emptyRow.innerHTML = `<td colspan="13" class="no-data">No reflection data available. Please add a new reflection.</td>`;
                 tbody.appendChild(emptyRow);
                 return;
             }
@@ -258,17 +483,144 @@
                     <td class="${effectivenessClass}">
                         ${reflection.effectiveness || 'N/A'}
                     </td>
+                    <td class="action-buttons">
+                        <button class="edit-btn" onclick="editReflection('${reflection.id}')">Edit</button>
+                        <button class="delete-btn" onclick="confirmDelete('${reflection.id}')">Delete</button>
+                    </td>
                 `;
                 
                 tbody.appendChild(row);
             });
         }
         
-        // Load reflections when the page loads
-        window.addEventListener('load', loadReflections);
+        // Function to open edit modal and populate with reflection data
+        function editReflection(id) {
+            const reflectionsData = JSON.parse(localStorage.getItem('teachingReflections')) || [];
+            const reflection = reflectionsData.find(item => item.id == id);
+            
+            if (reflection) {
+                // Populate form fields
+                document.getElementById('edit-id').value = reflection.id;
+                document.getElementById('edit-date').value = reflection.date;
+                document.getElementById('edit-class').value = reflection.class;
+                document.getElementById('edit-subject').value = reflection.subject || '';
+                document.getElementById('edit-lessonTopic').value = reflection.lessonTopic || '';
+                document.getElementById('edit-objectives').value = reflection.objectives || '';
+                document.getElementById('edit-classroomChallenges').value = reflection.classroomChallenges || '';
+                document.getElementById('edit-classroomSolutions').value = reflection.classroomSolutions || '';
+                document.getElementById('edit-culturalChallenges').value = reflection.culturalChallenges || '';
+                document.getElementById('edit-culturalSolutions').value = reflection.culturalSolutions || '';
+                document.getElementById('edit-engagement').value = reflection.engagement || '';
+                document.getElementById('edit-studentFeedback').value = reflection.studentFeedback || '';
+                document.getElementById('edit-teacherReflection').value = reflection.teacherReflection || '';
+                document.getElementById('edit-nextSteps').value = reflection.nextSteps || '';
+                document.getElementById('edit-resources').value = reflection.resources || '';
+                document.getElementById('edit-effectiveness').value = reflection.effectiveness || 'Good';
+                
+                // Show the modal
+                document.getElementById('editModal').style.display = 'block';
+            }
+        }
         
-        // Filter reflections when the class selector changes
-        document.getElementById('classSelect').addEventListener('change', loadReflections);
+        // Function to close the edit modal
+        function closeEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+        
+        // Function to display delete confirmation dialog
+        function confirmDelete(id) {
+            currentReflectionId = id;
+            document.getElementById('confirmDialog').style.display = 'block';
+        }
+        
+        // Function to close confirmation dialog
+        function closeConfirmDialog() {
+            document.getElementById('confirmDialog').style.display = 'none';
+            currentReflectionId = null;
+        }
+        
+        // Function to delete reflection
+        function deleteReflection(id) {
+            let reflectionsData = JSON.parse(localStorage.getItem('teachingReflections')) || [];
+            reflectionsData = reflectionsData.filter(item => item.id != id);
+            localStorage.setItem('teachingReflections', JSON.stringify(reflectionsData));
+            loadReflections();
+            closeConfirmDialog();
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load reflections when the page loads
+            loadReflections();
+            
+            // Filter reflections when the class selector changes
+            document.getElementById('classSelect').addEventListener('change', loadReflections);
+            
+            // Handle edit form submission
+            document.getElementById('editForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const id = document.getElementById('edit-id').value;
+                let reflectionsData = JSON.parse(localStorage.getItem('teachingReflections')) || [];
+                
+                // Find reflection index
+                const index = reflectionsData.findIndex(item => item.id == id);
+                
+                if (index !== -1) {
+                    // Update reflection data
+                    reflectionsData[index] = {
+                        id: id,
+                        date: document.getElementById('edit-date').value,
+                        class: document.getElementById('edit-class').value,
+                        subject: document.getElementById('edit-subject').value,
+                        lessonTopic: document.getElementById('edit-lessonTopic').value,
+                        objectives: document.getElementById('edit-objectives').value,
+                        classroomChallenges: document.getElementById('edit-classroomChallenges').value,
+                        classroomSolutions: document.getElementById('edit-classroomSolutions').value,
+                        culturalChallenges: document.getElementById('edit-culturalChallenges').value,
+                        culturalSolutions: document.getElementById('edit-culturalSolutions').value,
+                        engagement: document.getElementById('edit-engagement').value,
+                        studentFeedback: document.getElementById('edit-studentFeedback').value,
+                        teacherReflection: document.getElementById('edit-teacherReflection').value,
+                        nextSteps: document.getElementById('edit-nextSteps').value,
+                        resources: document.getElementById('edit-resources').value,
+                        effectiveness: document.getElementById('edit-effectiveness').value
+                    };
+                    
+                    // Save back to localStorage
+                    localStorage.setItem('teachingReflections', JSON.stringify(reflectionsData));
+                    
+                    // Close modal and reload reflections
+                    closeEditModal();
+                    loadReflections();
+                    
+                    // Show success message
+                    alert('Reflection updated successfully!');
+                }
+            });
+            
+            // Handle confirmation dialog buttons
+            document.getElementById('confirmYes').addEventListener('click', function() {
+                if (currentReflectionId) {
+                    deleteReflection(currentReflectionId);
+                }
+            });
+            
+            document.getElementById('confirmNo').addEventListener('click', closeConfirmDialog);
+            
+            // Close modal when clicking on the backdrop (outside modal content)
+            window.addEventListener('click', function(e) {
+                const modal = document.getElementById('editModal');
+                if (e.target === modal) {
+                    closeEditModal();
+                }
+                
+                const confirmDialog = document.getElementById('confirmDialog');
+                if (e.target === confirmDialog) {
+                    closeConfirmDialog();
+                }
+            });
+        });
     </script>
 </body>
 </html>
