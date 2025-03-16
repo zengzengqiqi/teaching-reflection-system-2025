@@ -15,87 +15,85 @@
             color: #333;
         }
         .container {
-            max-width: 900px;
+            width: 80%;
+            max-width: 800px;
             margin: 0 auto;
-            background-color: white;
             padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
         }
-        input[type="text"], input[type="date"], textarea, select {
+        input[type="text"], input[type="date"], select, textarea {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
             box-sizing: border-box;
+            font-family: inherit;
         }
         textarea {
-            height: 80px;
+            height: 150px;
+            resize: vertical;
+        }
+        .btn-group {
+            text-align: center;
+            margin-top: 30px;
         }
         button {
+            padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
-            padding: 10px 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-right: 10px;
             font-size: 16px;
         }
         button:hover {
             background-color: #45a049;
         }
-        .rating-input {
-            display: flex;
-            align-items: center;
+        button.cancel {
+            background-color: #f44336;
         }
-        .rating-input input {
-            width: 60px;
-            margin-right: 10px;
-        }
-        .section-title {
-            background-color: #f2f2f2;
-            padding: 8px;
-            margin-top: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid #4CAF50;
+        button.cancel:hover {
+            background-color: #d32f2f;
         }
         .navigation {
+            margin-bottom: 20px;
             text-align: center;
-            margin: 20px 0;
         }
-        .nav-button {
+        .navigation a {
             display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 4px;
             margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
-        .nav-button:hover {
-            background-color: #45a049;
+        .navigation a:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 <body>
     <div class="navigation">
-        <a href="index.html" class="nav-button">Back to Home</a>
-        <a href="lesson_reflection_table.html" class="nav-button">View Reflection Records</a>
+        <a href="index.html">Home</a>
+        <a href="lesson_reflection_table.html">View All Reflections</a>
     </div>
-
+    
+    <h1>Add Teaching Reflection</h1>
+    
     <div class="container">
-        <h1>Add Teaching Reflection Record</h1>
         <form id="reflectionForm">
-            <div class="section-title">Basic Information</div>
-            
             <div class="form-group">
                 <label for="date">Date:</label>
                 <input type="date" id="date" name="date" required>
@@ -103,161 +101,89 @@
             
             <div class="form-group">
                 <label for="class">Class:</label>
-                <select id="class" name="class" required>
-                    <option value="5a">5A</option>
-                    <option value="5b">5B</option>
-                    <option value="5c">5C</option>
-                    <option value="5d">5D</option>
-                    <option value="6a">6A</option>
-                    <option value="6b">6B</option>
-                    <option value="6c">6C</option>
-                    <option value="6d">6D</option>
-                    <option value="6e">6E</option>
-                    <option value="6f">6F</option>
-                </select>
+                <input type="text" id="class" name="class" required>
             </div>
             
             <div class="form-group">
-                <label for="objective">Lesson Objective:</label>
-                <textarea id="objective" name="objective" placeholder="Please enter the main objectives of this lesson..." required></textarea>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
             </div>
             
             <div class="form-group">
-                <label for="completion">Objective Completion (%):</label>
-                <input type="number" id="completion" name="completion" min="0" max="100" required>
-            </div>
-            
-            <div class="section-title">Classroom Management</div>
-            
-            <div class="form-group">
-                <label for="challenge">Classroom Challenges:</label>
-                <textarea id="challenge" name="challenge" placeholder="Describe classroom management challenges encountered in this lesson..."></textarea>
+                <label for="lessonTopic">Lesson Topic:</label>
+                <input type="text" id="lessonTopic" name="lessonTopic" required>
             </div>
             
             <div class="form-group">
-                <label for="severity">Severity:</label>
-                <select id="severity" name="severity">
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                </select>
+                <label for="objectives">Lesson Objectives:</label>
+                <textarea id="objectives" name="objectives" required></textarea>
             </div>
             
             <div class="form-group">
-                <label for="challenge_type">Challenge Type:</label>
-                <select id="challenge_type" name="challenge_type">
-                    <option value="Expected">Expected Challenge</option>
-                    <option value="Unexpected">Unexpected Challenge</option>
-                </select>
+                <label for="reflections">Reflections:</label>
+                <textarea id="reflections" name="reflections" required placeholder="What went well? What could be improved? How did students respond?"></textarea>
             </div>
             
             <div class="form-group">
-                <label for="solution">Solution:</label>
-                <textarea id="solution" name="solution" placeholder="Describe how you solved the classroom management challenges..."></textarea>
+                <label for="improvements">Areas for Improvement:</label>
+                <textarea id="improvements" name="improvements" required></textarea>
             </div>
             
             <div class="form-group">
-                <label for="effectiveness">Solution Effectiveness (1-5):</label>
-                <div class="rating-input">
-                    <input type="number" id="effectiveness" name="effectiveness" min="1" max="5">
-                    <span>1 = Very Poor, 5 = Excellent</span>
-                </div>
+                <label for="nextSteps">Next Steps:</label>
+                <textarea id="nextSteps" name="nextSteps" required></textarea>
             </div>
             
-            <div class="section-title">Cross-cultural Communication</div>
-            
-            <div class="form-group">
-                <label for="cultural_challenge">Cultural Challenges:</label>
-                <textarea id="cultural_challenge" name="cultural_challenge" placeholder="Describe cross-cultural challenges encountered in this lesson..."></textarea>
+            <div class="btn-group">
+                <button type="submit" id="saveBtn">Save Reflection</button>
+                <button type="button" class="cancel" onclick="window.location.href='lesson_reflection_table.html'">Cancel</button>
             </div>
-            
-            <div class="form-group">
-                <label for="cultural_severity">Severity:</label>
-                <select id="cultural_severity" name="cultural_severity">
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="cultural_solution">Solution:</label>
-                <textarea id="cultural_solution" name="cultural_solution" placeholder="Describe how you solved the cross-cultural challenges..."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="cultural_effectiveness">Solution Effectiveness (1-5):</label>
-                <div class="rating-input">
-                    <input type="number" id="cultural_effectiveness" name="cultural_effectiveness" min="1" max="5">
-                    <span>1 = Very Poor, 5 = Excellent</span>
-                </div>
-            </div>
-            
-            <div class="section-title">Student Participation and Feedback</div>
-            
-            <div class="form-group">
-                <label for="participation">Student Participation (%):</label>
-                <input type="number" id="participation" name="participation" min="0" max="100">
-            </div>
-            
-            <div class="form-group">
-                <label for="active_questioning">Active Questioning Ratio (%):</label>
-                <input type="number" id="active_questioning" name="active_questioning" min="0" max="100">
-            </div>
-            
-            <div class="form-group">
-                <label for="exercise_completion">Exercise Completion Rate (%):</label>
-                <input type="number" id="exercise_completion" name="exercise_completion" min="0" max="100">
-            </div>
-            
-            <div class="form-group">
-                <label for="student_feedback">Student Feedback:</label>
-                <textarea id="student_feedback" name="student_feedback" placeholder="Record student feedback and common questions..."></textarea>
-            </div>
-            
-            <div class="section-title">Teacher Reflection and Next Steps</div>
-            
-            <div class="form-group">
-                <label for="teacher_reflection">Teacher Reflection:</label>
-                <textarea id="teacher_reflection" name="teacher_reflection" placeholder="Your reflection on this lesson..."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="action_plan">Action Plan for Next Lesson:</label>
-                <textarea id="action_plan" name="action_plan" placeholder="Improvement plan for the next lesson..."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="resources">Resource Assessment:</label>
-                <textarea id="resources" name="resources" placeholder="Assessment of teaching resources..."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="overall_rating">Overall Lesson Effectiveness:</label>
-                <select id="overall_rating" name="overall_rating">
-                    <option value="Poor">Poor</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Good">Good</option>
-                    <option value="Excellent">Excellent</option>
-                </select>
-            </div>
-            
-            <button type="submit">Submit Reflection</button>
         </form>
     </div>
-
+    
     <script>
         document.getElementById('reflectionForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Form submitted! In a real application, this data would be saved to a database or sent via API.');
-            // In a real application, code to send data to the server would be here
+            
+            // Get form values
+            const date = document.getElementById('date').value;
+            const classValue = document.getElementById('class').value;
+            const subject = document.getElementById('subject').value;
+            const lessonTopic = document.getElementById('lessonTopic').value;
+            const objectives = document.getElementById('objectives').value;
+            const reflections = document.getElementById('reflections').value;
+            const improvements = document.getElementById('improvements').value;
+            const nextSteps = document.getElementById('nextSteps').value;
+            
+            // Get existing reflections from localStorage or initialize empty array
+            let reflectionsData = JSON.parse(localStorage.getItem('teachingReflections')) || [];
+            
+            // Create new reflection object
+            const newReflection = {
+                id: Date.now(), // Using timestamp as a simple unique ID
+                date: date,
+                class: classValue,
+                subject: subject,
+                lessonTopic: lessonTopic,
+                objectives: objectives,
+                reflections: reflections,
+                improvements: improvements,
+                nextSteps: nextSteps
+            };
+            
+            // Add to reflections array
+            reflectionsData.push(newReflection);
+            
+            // Save back to localStorage
+            localStorage.setItem('teachingReflections', JSON.stringify(reflectionsData));
+            
+            // Show confirmation and redirect
+            alert('Reflection saved successfully!');
             window.location.href = 'lesson_reflection_table.html';
         });
+        
+        // Set today's date as default
+        document.getElementById('date').valueAsDate = new Date();
     </script>
-    
-    <div class="navigation">
-        <a href="index.html" class="nav-button">Back to Home</a>
-        <a href="lesson_reflection_table.html" class="nav-button">View Reflection Records</a>
-    </div>
 </body>
 </html>
