@@ -74,13 +74,13 @@
             display: inline-block;
             margin: 0 10px;
             text-decoration: none;
-            color: #333;
-            padding: 5px 10px;
-            border: 1px solid #ddd;
+            color: white;
+            padding: 10px 20px;
             border-radius: 4px;
+            background-color: #4CAF50;
         }
         .navigation a:hover {
-            background-color: #f0f0f0;
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -101,7 +101,19 @@
             
             <div class="form-group">
                 <label for="class">Class:</label>
-                <input type="text" id="class" name="class" required>
+                <select id="class" name="class" required>
+                    <option value="">Select a class</option>
+                    <option value="5A">5A</option>
+                    <option value="5B">5B</option>
+                    <option value="5C">5C</option>
+                    <option value="5D">5D</option>
+                    <option value="6A">6A</option>
+                    <option value="6B">6B</option>
+                    <option value="6C">6C</option>
+                    <option value="6D">6D</option>
+                    <option value="6E">6E</option>
+                    <option value="6F">6F</option>
+                </select>
             </div>
             
             <div class="form-group">
@@ -116,22 +128,62 @@
             
             <div class="form-group">
                 <label for="objectives">Lesson Objectives:</label>
-                <textarea id="objectives" name="objectives" required></textarea>
+                <textarea id="objectives" name="objectives" required placeholder="What are the main objectives for this lesson?"></textarea>
             </div>
             
             <div class="form-group">
-                <label for="reflections">Reflections:</label>
-                <textarea id="reflections" name="reflections" required placeholder="What went well? What could be improved? How did students respond?"></textarea>
+                <label for="classroomChallenges">Classroom Management Challenges:</label>
+                <textarea id="classroomChallenges" name="classroomChallenges" placeholder="What classroom management challenges did you face?"></textarea>
             </div>
             
             <div class="form-group">
-                <label for="improvements">Areas for Improvement:</label>
-                <textarea id="improvements" name="improvements" required></textarea>
+                <label for="classroomSolutions">Classroom Management Solutions:</label>
+                <textarea id="classroomSolutions" name="classroomSolutions" placeholder="How did you address the classroom management challenges?"></textarea>
             </div>
             
             <div class="form-group">
-                <label for="nextSteps">Next Steps:</label>
-                <textarea id="nextSteps" name="nextSteps" required></textarea>
+                <label for="culturalChallenges">Cross-cultural Communication Challenges:</label>
+                <textarea id="culturalChallenges" name="culturalChallenges" placeholder="What cross-cultural communication challenges did you face?"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="culturalSolutions">Cross-cultural Communication Solutions:</label>
+                <textarea id="culturalSolutions" name="culturalSolutions" placeholder="How did you address the cross-cultural challenges?"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="engagement">Student Engagement (Quantitative Indicators):</label>
+                <textarea id="engagement" name="engagement" placeholder="Participation rate, active questioning, exercise completion, etc."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="studentFeedback">Student Feedback:</label>
+                <textarea id="studentFeedback" name="studentFeedback" placeholder="What feedback did students provide about the lesson?"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="teacherReflection">Teacher Reflection:</label>
+                <textarea id="teacherReflection" name="teacherReflection" required placeholder="What went well? What could be improved? How did students respond?"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="nextSteps">Next Lesson Action Plan:</label>
+                <textarea id="nextSteps" name="nextSteps" required placeholder="What will you do differently in the next lesson?"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="resources">Resource Evaluation:</label>
+                <textarea id="resources" name="resources" placeholder="Evaluate the effectiveness of teaching resources used."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="effectiveness">Overall Course Effectiveness:</label>
+                <select id="effectiveness" name="effectiveness">
+                    <option value="High">High</option>
+                    <option value="Good">Good</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
             </div>
             
             <div class="btn-group">
@@ -151,9 +203,16 @@
             const subject = document.getElementById('subject').value;
             const lessonTopic = document.getElementById('lessonTopic').value;
             const objectives = document.getElementById('objectives').value;
-            const reflections = document.getElementById('reflections').value;
-            const improvements = document.getElementById('improvements').value;
+            const classroomChallenges = document.getElementById('classroomChallenges').value;
+            const classroomSolutions = document.getElementById('classroomSolutions').value;
+            const culturalChallenges = document.getElementById('culturalChallenges').value;
+            const culturalSolutions = document.getElementById('culturalSolutions').value;
+            const engagement = document.getElementById('engagement').value;
+            const studentFeedback = document.getElementById('studentFeedback').value;
+            const teacherReflection = document.getElementById('teacherReflection').value;
             const nextSteps = document.getElementById('nextSteps').value;
+            const resources = document.getElementById('resources').value;
+            const effectiveness = document.getElementById('effectiveness').value;
             
             // Get existing reflections from localStorage or initialize empty array
             let reflectionsData = JSON.parse(localStorage.getItem('teachingReflections')) || [];
@@ -166,9 +225,16 @@
                 subject: subject,
                 lessonTopic: lessonTopic,
                 objectives: objectives,
-                reflections: reflections,
-                improvements: improvements,
-                nextSteps: nextSteps
+                classroomChallenges: classroomChallenges,
+                classroomSolutions: classroomSolutions,
+                culturalChallenges: culturalChallenges,
+                culturalSolutions: culturalSolutions,
+                engagement: engagement,
+                studentFeedback: studentFeedback,
+                teacherReflection: teacherReflection,
+                nextSteps: nextSteps,
+                resources: resources,
+                effectiveness: effectiveness
             };
             
             // Add to reflections array
