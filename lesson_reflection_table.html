@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>优化版教学反思表</title>
+    <title>优化版教学反思表 | Optimized Teaching Reflection Form</title>
     <style>
         body {
             font-family: 'Microsoft YaHei', sans-serif;
@@ -88,151 +88,458 @@
         .nav-button:hover {
             background-color: #45a049;
         }
+        .bilingual {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .chinese {
+            flex: 1;
+        }
+        .english {
+            flex: 1;
+            color: #666;
+            font-style: italic;
+        }
+        .class-selector {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .class-selector select {
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
     <div class="navigation">
-        <a href="index.html" class="nav-button">返回首页</a>
-        <a href="add_reflection.html" class="nav-button">添加新反思</a>
+        <div class="bilingual">
+            <div class="chinese"><a href="index.html" class="nav-button">返回首页</a></div>
+            <div class="english"><a href="index.html" class="nav-button">Back to Home</a></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><a href="add_reflection.html" class="nav-button">添加新反思</a></div>
+            <div class="english"><a href="add_reflection.html" class="nav-button">Add New Reflection</a></div>
+        </div>
     </div>
 
-    <h1>优化版教学反思表</h1>
+    <h1>
+        <div class="bilingual">
+            <div class="chinese">优化版教学反思表</div>
+            <div class="english">Optimized Teaching Reflection Form</div>
+        </div>
+    </h1>
+    
+    <div class="class-selector">
+        <div class="bilingual">
+            <div class="chinese">选择班级：</div>
+            <div class="english">Select Class:</div>
+        </div>
+        <select id="classSelect">
+            <option value="5A">5A</option>
+            <option value="5B">5B</option>
+            <option value="5C">5C</option>
+            <option value="5D">5D</option>
+            <option value="6A">6A</option>
+            <option value="6B">6B</option>
+            <option value="6C">6C</option>
+            <option value="6D">6D</option>
+            <option value="6E">6E</option>
+            <option value="6F">6F</option>
+        </select>
+    </div>
     
     <div class="highlight-section">
-        <h3>课程关键要点</h3>
-        <p><span class="icon green-text">✓</span> 大部分学生积极参与家庭主题活动 (参与率: 75%)</p>
-        <p><span class="icon yellow-text">!</span> 学生对中国与阿联酋家庭结构比较感兴趣但存在文化混淆</p>
-        <p><span class="icon red-text">✗</span> 部分学生在开口说中文方面仍然需要额外支持</p>
+        <h3>
+            <div class="bilingual">
+                <div class="chinese">课程关键要点</div>
+                <div class="english">Key Course Points</div>
+            </div>
+        </h3>
+        <div class="bilingual">
+            <div class="chinese"><p><span class="icon green-text">✓</span> 大部分学生积极参与家庭主题活动 (参与率: 75%)</p></div>
+            <div class="english"><p><span class="icon green-text">✓</span> Most students actively participated in family-themed activities (Participation rate: 75%)</p></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><p><span class="icon yellow-text">!</span> 学生对中国与阿联酋家庭结构比较感兴趣但存在文化混淆</p></div>
+            <div class="english"><p><span class="icon yellow-text">!</span> Students are interested in comparing Chinese and UAE family structures but cultural confusion exists</p></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><p><span class="icon red-text">✗</span> 部分学生在开口说中文方面仍然需要额外支持</p></div>
+            <div class="english"><p><span class="icon red-text">✗</span> Some students still need additional support in speaking Chinese</p></div>
+        </div>
     </div>
 
     <table>
         <thead>
             <tr>
-                <th rowspan="2">日期</th>
-                <th rowspan="2">课程目标</th>
-                <th colspan="2">课堂管理</th>
-                <th colspan="2">跨文化沟通</th>
-                <th rowspan="2">学生参与度<br>(定量指标)</th>
-                <th rowspan="2">学生反馈</th>
-                <th rowspan="2">教师反思</th>
-                <th rowspan="2">下节课行动计划</th>
-                <th rowspan="2">资源评估</th>
-                <th rowspan="2">整体课程效果</th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">日期</div>
+                        <div class="english">Date</div>
+                    </div>
+                </th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">课程目标</div>
+                        <div class="english">Course Objectives</div>
+                    </div>
+                </th>
+                <th colspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">课堂管理</div>
+                        <div class="english">Classroom Management</div>
+                    </div>
+                </th>
+                <th colspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">跨文化沟通</div>
+                        <div class="english">Cross-cultural Communication</div>
+                    </div>
+                </th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">学生参与度<br>(定量指标)</div>
+                        <div class="english">Student Engagement<br>(Quantitative Indicators)</div>
+                    </div>
+                </th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">学生反馈</div>
+                        <div class="english">Student Feedback</div>
+                    </div>
+                </th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">教师反思</div>
+                        <div class="english">Teacher Reflection</div>
+                    </div>
+                </th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">下节课行动计划</div>
+                        <div class="english">Next Lesson Action Plan</div>
+                    </div>
+                </th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">资源评估</div>
+                        <div class="english">Resource Evaluation</div>
+                    </div>
+                </th>
+                <th rowspan="2">
+                    <div class="bilingual">
+                        <div class="chinese">整体课程效果</div>
+                        <div class="english">Overall Course Effectiveness</div>
+                    </div>
+                </th>
             </tr>
             <tr>
-                <th>挑战</th>
-                <th>解决方案</th>
-                <th>挑战</th>
-                <th>解决方案</th>
+                <th>
+                    <div class="bilingual">
+                        <div class="chinese">挑战</div>
+                        <div class="english">Challenges</div>
+                    </div>
+                </th>
+                <th>
+                    <div class="bilingual">
+                        <div class="chinese">解决方案</div>
+                        <div class="english">Solutions</div>
+                    </div>
+                </th>
+                <th>
+                    <div class="bilingual">
+                        <div class="chinese">挑战</div>
+                        <div class="english">Challenges</div>
+                    </div>
+                </th>
+                <th>
+                    <div class="bilingual">
+                        <div class="chinese">解决方案</div>
+                        <div class="english">Solutions</div>
+                    </div>
+                </th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>2024年5月16日</td>
+                <td>2024年5月16日<br>May 16, 2024</td>
                 <td>
-                    掌握10个新词汇，描述家庭成员
+                    <div class="bilingual">
+                        <div class="chinese">掌握10个新词汇，描述家庭成员</div>
+                        <div class="english">Master 10 new vocabulary words to describe family members</div>
+                    </div>
                     <br>
-                    <span class="rating green-text">完成度: 85%</span>
+                    <span class="rating green-text">
+                        <div class="bilingual">
+                            <div class="chinese">完成度: 85%</div>
+                            <div class="english">Completion rate: 85%</div>
+                        </div>
+                    </span>
                 </td>
                 <td>
-                    <span class="icon yellow-text">!</span> 学生迟到现象较多，课堂纪律松散。
+                    <div class="bilingual">
+                        <div class="chinese"><span class="icon yellow-text">!</span> 学生迟到现象较多，课堂纪律松散。</div>
+                        <div class="english"><span class="icon yellow-text">!</span> Many students were late, classroom discipline was loose.</div>
+                    </div>
                     <br>
-                    <span class="rating yellow-text">严重性: 中等</span>
+                    <span class="rating yellow-text">
+                        <div class="bilingual">
+                            <div class="chinese">严重性: 中等</div>
+                            <div class="english">Severity: Medium</div>
+                        </div>
+                    </span>
                     <br>
-                    <span class="green-text">预期的挑战</span>
+                    <span class="green-text">
+                        <div class="bilingual">
+                            <div class="chinese">预期的挑战</div>
+                            <div class="english">Expected challenge</div>
+                        </div>
+                    </span>
                 </td>
                 <td>
-                    与家长沟通，了解学生迟到原因；前播放中文歌曲，吸引学生注意力。
+                    <div class="bilingual">
+                        <div class="chinese">与家长沟通，了解学生迟到原因；前播放中文歌曲，吸引学生注意力。</div>
+                        <div class="english">Communicate with parents to understand reasons for tardiness; play Chinese songs before class to attract students' attention.</div>
+                    </div>
                     <br>
-                    <span class="rating green-text">有效性: 4/5</span>
+                    <span class="rating green-text">
+                        <div class="bilingual">
+                            <div class="chinese">有效性: 4/5</div>
+                            <div class="english">Effectiveness: 4/5</div>
+                        </div>
+                    </span>
                     <br>
-                    <span class="green-text">建议重用</span>
+                    <span class="green-text">
+                        <div class="bilingual">
+                            <div class="chinese">建议重用</div>
+                            <div class="english">Recommended for reuse</div>
+                        </div>
+                    </span>
                 </td>
                 <td>
-                    学生对中国家庭称谓不太熟悉，容易混淆。
+                    <div class="bilingual">
+                        <div class="chinese">学生对中国家庭称谓不太熟悉，容易混淆。</div>
+                        <div class="english">Students are unfamiliar with Chinese family titles and easily confused.</div>
+                    </div>
                     <br>
-                    <span class="rating red-text">严重性: 高</span>
+                    <span class="rating red-text">
+                        <div class="bilingual">
+                            <div class="chinese">严重性: 高</div>
+                            <div class="english">Severity: High</div>
+                        </div>
+                    </span>
                     <br>
-                    <span class="red-text">意外挑战</span>
+                    <span class="red-text">
+                        <div class="bilingual">
+                            <div class="chinese">意外挑战</div>
+                            <div class="english">Unexpected challenge</div>
+                        </div>
+                    </span>
                 </td>
                 <td>
-                    制作家庭树图示，对比中国和阿联酋的家庭结构；鼓励学生分享自己家庭的故事。
+                    <div class="bilingual">
+                        <div class="chinese">制作家庭树图示，对比中国和阿联酋的家庭结构；鼓励学生分享自己家庭的故事。</div>
+                        <div class="english">Create family tree diagrams comparing Chinese and UAE family structures; encourage students to share their own family stories.</div>
+                    </div>
                     <br>
-                    <span class="rating green-text">有效性: 5/5</span>
+                    <span class="rating green-text">
+                        <div class="bilingual">
+                            <div class="chinese">有效性: 5/5</div>
+                            <div class="english">Effectiveness: 5/5</div>
+                        </div>
+                    </span>
                     <br>
-                    <span class="green-text">建议重用并扩展</span>
+                    <span class="green-text">
+                        <div class="bilingual">
+                            <div class="chinese">建议重用并扩展</div>
+                            <div class="english">Recommended for reuse and expansion</div>
+                        </div>
+                    </span>
                 </td>
                 <td>
-                    参与度: 75%
+                    <div class="bilingual">
+                        <div class="chinese">参与度: 75%</div>
+                        <div class="english">Participation: 75%</div>
+                    </div>
                     <br>
-                    积极提问: 60%
+                    <div class="bilingual">
+                        <div class="chinese">积极提问: 60%</div>
+                        <div class="english">Active questioning: 60%</div>
+                    </div>
                     <br>
-                    完成练习: 85%
+                    <div class="bilingual">
+                        <div class="chinese">完成练习: 85%</div>
+                        <div class="english">Exercise completion: 85%</div>
+                    </div>
                     <br>
-                    <span class="icon green-text">↑</span> 较上节课提高10%
+                    <span class="icon green-text">↑</span> 
+                    <div class="bilingual">
+                        <div class="chinese">较上节课提高10%</div>
+                        <div class="english">10% increase from previous lesson</div>
+                    </div>
                 </td>
                 <td>
-                    "家庭树图很有帮助" - 5名学生
+                    <div class="bilingual">
+                        <div class="chinese">"家庭树图很有帮助" - 5名学生</div>
+                        <div class="english">"Family tree diagram was helpful" - 5 students</div>
+                    </div>
                     <br>
-                    "想了解更多中国家庭照片" - 8名学生
+                    <div class="bilingual">
+                        <div class="chinese">"想了解更多中国家庭照片" - 8名学生</div>
+                        <div class="english">"Want to see more Chinese family photos" - 8 students</div>
+                    </div>
                     <br>
-                    <span class="icon yellow-text">?</span> 常见问题: "中国和阿联酋的家庭主要区别?"
+                    <span class="icon yellow-text">?</span> 
+                    <div class="bilingual">
+                        <div class="chinese">常见问题: "中国和阿联酋的家庭主要区别?"</div>
+                        <div class="english">Common question: "What are the main differences between Chinese and UAE families?"</div>
+                    </div>
                 </td>
                 <td>
-                    今天的语法讲解过于理论化，学生感到枯燥。应该更多地结合实际情境进行讲解。
+                    <div class="bilingual">
+                        <div class="chinese">今天的语法讲解过于理论化，学生感到枯燥。应该更多地结合实际情境进行讲解。</div>
+                        <div class="english">Today's grammar explanation was too theoretical, students found it boring. Should incorporate more practical situations.</div>
+                    </div>
                     <br>
-                    <span class="icon green-text">+</span> 课堂互动活动效果良好
+                    <span class="icon green-text">+</span> 
+                    <div class="bilingual">
+                        <div class="chinese">课堂互动活动效果良好</div>
+                        <div class="english">Classroom interactive activities were effective</div>
+                    </div>
                     <br>
-                    <span class="icon red-text">-</span> 需改进理论讲解方式
+                    <span class="icon red-text">-</span> 
+                    <div class="bilingual">
+                        <div class="chinese">需改进理论讲解方式</div>
+                        <div class="english">Need to improve theoretical explanation methods</div>
+                    </div>
                 </td>
                 <td>
-                    1. 改进语法讲解方式，采用情境教学法。
+                    <div class="bilingual">
+                        <div class="chinese">1. 改进语法讲解方式，采用情境教学法。</div>
+                        <div class="english">1. Improve grammar explanation methods, use situational teaching.</div>
+                    </div>
                     <br>
-                    2. 准备更多家庭成员的图片，帮助学生理解。
+                    <div class="bilingual">
+                        <div class="chinese">2. 准备更多家庭成员的图片，帮助学生理解。</div>
+                        <div class="english">2. Prepare more pictures of family members to help students understand.</div>
+                    </div>
                     <br>
-                    3. 设计更多互动练习强化词汇记忆。
+                    <div class="bilingual">
+                        <div class="chinese">3. 设计更多互动练习强化词汇记忆。</div>
+                        <div class="english">3. Design more interactive exercises to reinforce vocabulary memory.</div>
+                    </div>
                     <br>
-                    4. 增加中阿家庭结构比较视频材料。
+                    <div class="bilingual">
+                        <div class="chinese">4. 增加中阿家庭结构比较视频材料。</div>
+                        <div class="english">4. Add video materials comparing Chinese and Arab family structures.</div>
+                    </div>
                 </td>
                 <td>
-                    <span class="icon green-text">✓</span> 家庭树图示 (非常有效)
+                    <span class="icon green-text">✓</span> 
+                    <div class="bilingual">
+                        <div class="chinese">家庭树图示 (非常有效)</div>
+                        <div class="english">Family tree diagram (very effective)</div>
+                    </div>
                     <br>
-                    <span class="icon yellow-text">!</span> 语法讲义 (需改进)
+                    <span class="icon yellow-text">!</span> 
+                    <div class="bilingual">
+                        <div class="chinese">语法讲义 (需改进)</div>
+                        <div class="english">Grammar handouts (need improvement)</div>
+                    </div>
                     <br>
-                    <span class="icon green-text">✓</span> 中文歌曲 (有效)
+                    <span class="icon green-text">✓</span> 
+                    <div class="bilingual">
+                        <div class="chinese">中文歌曲 (有效)</div>
+                        <div class="english">Chinese songs (effective)</div>
+                    </div>
                     <br>
-                    <span class="icon red-text">✗</span> 缺少: 视频材料
+                    <span class="icon red-text">✗</span> 
+                    <div class="bilingual">
+                        <div class="chinese">缺少: 视频材料</div>
+                        <div class="english">Missing: Video materials</div>
+                    </div>
                 </td>
                 <td>
-                    <span class="rating green-text">良好</span>
+                    <span class="rating green-text">
+                        <div class="bilingual">
+                            <div class="chinese">良好</div>
+                            <div class="english">Good</div>
+                        </div>
+                    </span>
                     <br>
-                    词汇掌握: 85%
+                    <div class="bilingual">
+                        <div class="chinese">词汇掌握: 85%</div>
+                        <div class="english">Vocabulary mastery: 85%</div>
+                    </div>
                     <br>
-                    语法理解: 70%
+                    <div class="bilingual">
+                        <div class="chinese">语法理解: 70%</div>
+                        <div class="english">Grammar understanding: 70%</div>
+                    </div>
                     <br>
-                    文化理解: 80%
+                    <div class="bilingual">
+                        <div class="chinese">文化理解: 80%</div>
+                        <div class="english">Cultural understanding: 80%</div>
+                    </div>
                 </td>
             </tr>
         </tbody>
     </table>
 
     <div style="margin-top: 30px;">
-        <h3>专业发展反思</h3>
-        <p><strong>需发展的教学技能:</strong> 如何在跨文化背景下更有效地解释语法概念</p>
-        <p><strong>教学目标连接:</strong> 本次课程经验表明需要加强视觉辅助材料在语言教学中的应用</p>
-        <p><strong>跨文化教学心得:</strong> 当地学生对家庭结构的理解与中国传统家庭概念有显著差异，需要更多对比和解释</p>
+        <h3>
+            <div class="bilingual">
+                <div class="chinese">专业发展反思</div>
+                <div class="english">Professional Development Reflection</div>
+            </div>
+        </h3>
+        <div class="bilingual">
+            <div class="chinese"><p><strong>需发展的教学技能:</strong> 如何在跨文化背景下更有效地解释语法概念</p></div>
+            <div class="english"><p><strong>Teaching skills to develop:</strong> How to more effectively explain grammar concepts in cross-cultural contexts</p></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><p><strong>教学目标连接:</strong> 本次课程经验表明需要加强视觉辅助材料在语言教学中的应用</p></div>
+            <div class="english"><p><strong>Teaching goal connection:</strong> This lesson experience indicates the need to strengthen the use of visual aids in language teaching</p></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><p><strong>跨文化教学心得:</strong> 当地学生对家庭结构的理解与中国传统家庭概念有显著差异，需要更多对比和解释</p></div>
+            <div class="english"><p><strong>Cross-cultural teaching insights:</strong> Local students' understanding of family structure differs significantly from traditional Chinese family concepts, requiring more comparison and explanation</p></div>
+        </div>
     </div>
 
     <div style="margin-top: 30px;">
-        <h3>学习成果评估</h3>
-        <p><strong>评估方法:</strong> 课堂互动(30%)、出口小测验(40%)、角色扮演(30%)</p>
-        <p><strong>预期vs实际:</strong> 预期掌握率85%，实际达到80%，略低于预期</p>
-        <p><strong>需加强的概念:</strong> "表哥/表弟"和"堂哥/堂弟"的区别；隔代亲属称谓</p>
+        <h3>
+            <div class="bilingual">
+                <div class="chinese">学习成果评估</div>
+                <div class="english">Learning Outcome Assessment</div>
+            </div>
+        </h3>
+        <div class="bilingual">
+            <div class="chinese"><p><strong>评估方法:</strong> 课堂互动(30%)、出口小测验(40%)、角色扮演(30%)</p></div>
+            <div class="english"><p><strong>Assessment methods:</strong> Classroom interaction(30%), Exit quiz(40%), Role-playing(30%)</p></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><p><strong>预期vs实际:</strong> 预期掌握率85%，实际达到80%，略低于预期</p></div>
+            <div class="english"><p><strong>Expected vs. Actual:</strong> Expected mastery rate 85%, actual reached 80%, slightly below expectation</p></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><p><strong>需加强的概念:</strong> "表哥/表弟"和"堂哥/堂弟"的区别；隔代亲属称谓</p></div>
+            <div class="english"><p><strong>Concepts to strengthen:</strong> Distinction between maternal and paternal cousins; addressing relatives across generations</p></div>
+        </div>
     </div>
     
     <div class="navigation">
-        <a href="index.html" class="nav-button">返回首页</a>
-        <a href="add_reflection.html" class="nav-button">添加新反思</a>
+        <div class="bilingual">
+            <div class="chinese"><a href="index.html" class="nav-button">返回首页</a></div>
+            <div class="english"><a href="index.html" class="nav-button">Back to Home</a></div>
+        </div>
+        <div class="bilingual">
+            <div class="chinese"><a href="add_reflection.html" class="nav-button">添加新反思</a></div>
+            <div class="english"><a href="add_reflection.html" class="nav-button">Add New Reflection</a></div>
+        </div>
     </div>
 </body>
 </html>
